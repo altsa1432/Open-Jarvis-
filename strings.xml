@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Open Jarvis</string>
+    <string name="accessibility_service_description">Optional voice-triggered system navigation: Home, Back, Recents, Notifications, and Quick Settings. It does not read screen content or perform taps.</string>
+</resources>

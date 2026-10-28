@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cyan-300: #ff74d4;
+  --color-cyan-200: #ff9ce0;
+  --color-cyan-100: #ffd0ee;
+  --color-cyan-900: #5b1649;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Noto Sans", sans-serif;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #08020a;
+  color: #fff;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Noto Sans", sans-serif;
+  overscroll-behavior: none;
+}
+input, textarea, select, [contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+::selection { background: rgba(255, 74, 190, .35); color: #fff; }
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+}
+
+@keyframes fruity-soft-breathe {
+  from { transform: translateY(0) scale(1); filter: drop-shadow(0 0 16px rgba(34,211,238,.18)); }
+  to { transform: translateY(-3px) scale(1.025); filter: drop-shadow(0 0 28px rgba(168,85,247,.3)); }
+}
+@keyframes fruity-speaking-pulse {
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(-2px) scale(1.035); }
+}
+@keyframes fruity-bar-talk {
+  0%, 100% { transform: scaleY(.45); }
+  50% { transform: scaleY(1.2); }
+}
+@keyframes fruity-hud-pulse {
+  0%, 100% { opacity: .45; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.06); }
+}
+.frooty-reduce-motion *, .frooty-reduce-motion *::before, .frooty-reduce-motion *::after {
+  animation-duration: .01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: .01ms !important;
+}
+.frooty-high-contrast body { background-color: #000; }
+.frooty-high-contrast { --color-cyan-100: #ffffff; }
+.frooty-high-contrast p, .frooty-high-contrast span, .frooty-high-contrast h1, .frooty-high-contrast h2 {
+  text-shadow: 0 0 1px rgba(0,0,0,.9);
+}
+.fruity-idle { animation: fruity-soft-breathe 4.5s ease-in-out infinite alternate; }
+.fruity-listening { animation: fruity-soft-breathe 1.5s ease-in-out infinite alternate; }
+.fruity-speaking { animation: fruity-speaking-pulse .72s ease-in-out infinite alternate; }
+.fruity-equalizer { transform-origin: center; animation: fruity-bar-talk .52s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
